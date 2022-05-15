@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maindocentes</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="maindocentes.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <!--Navbar superior-->
+    <nav class="navbar navbar-expand-sm" style="height: 100px; background-color:blue;">
+        <a class="navbar-brand nav-item nav-link active" href="#"
+            style="font-size:50px; font-family: 'League Spartan', sans-serif;">
+            <span style="color: white;">DOCENT</span><span style="color: black;">BLADE</span>
+        </a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" style="margin-right: 70px;">
+                    <!--<a href="#" data-toggle="modal" data-target="#login"
+                        style="font-size:30px; font-family: 'League Spartan', sans-serif; color: black;">
+                        Ingresar
+                    </a>
+                    <span style="font-size:30px; font-family: 'League Spartan', sans-serif; color: black;"> | </span>
+                    <a href="#" data-toggle="modal" data-target="#registro"
+                        style="font-size:30px; font-family: 'League Spartan', sans-serif; color: black;">
+                        Registrarse
+                    </a>-->
+                    <a style="font-size:30px; font-family: 'League Spartan', sans-serif; color: white;">Bienvendo</a><a
+                        id="userWellcome"
+                        style="font-size:30px; font-family: 'League Spartan', sans-serif; color: black;"></a>
+                    <span style="font-size:30px; font-family: 'League Spartan', sans-serif; color: black;"> | </span>
+                    <a id="logoutBtn" href="main.html"
+                        style="font-size:30px; font-family: 'League Spartan', sans-serif; color: white;">
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <div style="font-family: 'League Spartan', sans-serif; margin-left: 30px;">
+            <h1 style="font-size:45px; color: black; margin-top: 10px;">
+                Administrar registro de docentes
+            </h1>
+            <p style="font-size:35px; color: black; margin-top: 10px;">
+                Desplegar por:
+                <br>
+                <input id="checkSuggest" onclick="handleSuggestChange(this)" type="checkbox" name="orderby"
+                    value="sinfiltro"><span style="font-size:25px; color: black; margin-top: 10px;"> Sugerencia de
+                    docentes </span>
+                <input id="checkRegister" onclick="handleRegisterChange(this)" type="checkbox" name="orderby"
+                    value="puntuacion"><span style="font-size:25px; color: black; margin-top: 10px;"> Docentes
+                    registrados </span>
+            </p>
+        </div>
+    </div>
+    <br>
+    <div id="suggestDocents"
+        style="margin-left: 30px; margin-right: 30px; font-family: 'League Spartan', sans-serif; font-size: 25px;"
+        hidden>
+        <table class="table" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre usuario</th>
+                    <th scope="col">Nombre profesor</th>
+                    <th scope="col">Materia</th>
+                    <th scope="col">Agregar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody style="color: #505050;" id="suggestList">
+                <!--<tr>
+                    <td>Jefferson Gutierritos</td>
+                    <td>Matemáticas</td>
+                    <td>Matemáticas</td>
+                    <td><button type="button" class="btn btn-dark"
+                            style="width:100px; height:45px; font-size:26px; background-color: greenyellow;"
+                            href="#" data-toggle="modal" data-target="#evaluar">
+                            ✅
+                        </button></td>
+                        <td><button type="button" class="btn btn-dark"
+                            style="width:100px; height:45px; font-size:26px; background-color: red;"
+                            href="#" data-toggle="modal" data-target="#evaluar">
+                            🗑️
+                        </button></td>
+                </tr>-->
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div id="registerDocents"
+        style="margin-left: 30px; margin-right: 30px; font-family: 'League Spartan', sans-serif; font-size: 25px;"
+        hidden>
+        <table class="table" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre profesor</th>
+                    <th scope="col">Materia</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody style="color: #505050;" id="registerList">
+                <!--<tr>
+                    <td>Jefferson Gutierritos</td>
+                    <td>Matemáticas</td>
+                    <td>Matemáticas</td>
+                        <td><button type="button" class="btn btn-dark"
+                            style="width:100px; height:45px; font-size:26px; background-color: red;"
+                            href="#" data-toggle="modal" data-target="#evaluar">
+                            🗑️
+                        </button></td>
+                </tr>-->
+            </tbody>
+        </table>
+    </div>
+    <!-- Optional JavaScript -->
+    <script src="./maindocentesadmin_utils.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

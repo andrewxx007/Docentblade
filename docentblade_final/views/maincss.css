@@ -1,0 +1,37 @@
+
+
+.titlesred {
+    font-family: 'League Spartan', sans-serif;   
+    text-align: center;
+    font-size: 82px;
+    color:#FF5757;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.subtitlesred {
+    font-family: 'League Spartan', sans-serif;
+    text-align: center;
+    font-size: 37px;
+    color:#FF5757;
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login {
+    font-family: 'League Spartan', sans-serif;
+    text-align: center;
+    font-size: 10px;
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal {
+    font-family: 'League Spartan', sans-serif;
+}

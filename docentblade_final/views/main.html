@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>docentable</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="maincss.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;900&display=swap" rel="stylesheet">-->
+</head>
+
+<body>
+    <div>
+        <p class="titlesred"><b>docentblade</b></p>
+        <p class="subtitlesred"><b>de alumnos, para alumnos</b></p>
+        <div class="login">
+            <p>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"
+                                style="font-size: 30px; color: black;" aria-hidden="true"></i></i></span>
+                    </div>
+                    <input id="userLogin" type="text" name="nombre"
+                        style="width:400px; height:45px; font-size:30px; font-family: 'League Spartan', sans-serif; text-align: center; color: grey;"
+                        placeholder="Correo electrónico">
+                </div>
+            </p>
+            <p>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"
+                                style="font-size: 30px; color: black;" aria-hidden="true"></i></i></span>
+                    </div>
+                    <input id="passwordLogin" type="password" name="password"
+                        style="width:400px; height:45px; font-size:30px; font-family: 'League Spartan', sans-serif; text-align: center; color: grey;"
+                        placeholder="Contraseña">
+                </div>
+            </p>
+            <p>
+                <a id="btnLogin" class="btn btn-dark disabled" role="button" href="#"
+                    style="width:450px; height:50px; font-size:30px; font-family: 'League Spartan', sans-serif; text-align: center; background-color: aquamarine; color: black;">Iniciar
+                    sesion</a>
+            </p>
+            <hr>
+            <p style="font-size: 30px;">¿No tienes cuenta?<br>
+                <button type="button" class="btn btn-dark"
+                    style="width:300px; height:50px; font-size:30px; font-family: 'League Spartan', sans-serif; text-align: center; background-color:aqua; color: black;"
+                    href="#" data-toggle="modal" data-target="#registro">
+                    Registrate
+                </button>
+            </p>
+            <br><br><br><br>
+            <a style="font-size: 20px; color: gray;">Acerca de nosotros</a>
+        </div>
+    </div>
+    <div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="color:#ff7d7b; font-size:35px">REGISTRATE</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text" name="" id="userName" class="form-control" placeholder="Nombre(s)"
+                                    aria-describedby="helpId" required>
+                            </div>
+                            <div class="col-6">
+                                <input type="text" name="" id="userLastName" class="form-control"
+                                    placeholder="Apellido(s)" aria-describedby="helpId" required>
+                            </div>
+                        </div>
+
+                        <input type="mail" name="" id="userEmail" class="form-control mt-3"
+                            placeholder="Correo (@iteso.mx)" aria-describedby="helpId" required>
+
+                        <input type="password" name="" id="userPassword" class="form-control mt-3"
+                            placeholder="Contraseña" aria-describedby="helpId" required>
+
+                        <input type="password" name="" id="userConPassword" class="form-control mt-3"
+                            placeholder="Confirmar contraseña" aria-describedby="helpId" required>
+                        <br>
+                        <!--<button id="registerBtn" class="btn btn-success mt-3 btn-block"
+                            style="background-color:aquamarine; color:black; font-size: 20px;">Registrarse</button>-->
+                        <a id="registerBtn" class="btn btn-dark" role="button" href="#"
+                            style="width:475px; height:50px; font-size:30px; font-family: 'League Spartan', sans-serif; text-align: center; background-color: aquamarine; color: black;">Registrarse</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./user.js"></script>
+    <script src="./ajax_handler.js"></script>
+    <!--<script src="./main_utils.js"></script>-->
+    <script src="./user_utils.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

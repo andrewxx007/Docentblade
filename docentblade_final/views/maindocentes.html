@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maindocentes</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="maindocentes.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <!--Navbar superior-->
+    <nav class="navbar navbar-expand-sm" style="height: 100px; background-color:#ff7d7b;">
+        <a class="navbar-brand nav-item nav-link active" href="#"
+            style="font-size:50px; font-family: 'League Spartan', sans-serif;">
+            <span style="color: white;">DOCENT</span><span style="color: black;">BLADE</span>
+        </a>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" style="margin-right: 70px;">
+                    <!--<a href="#" data-toggle="modal" data-target="#login"
+                        style="font-size:30px; font-family: 'League Spartan', sans-serif; color: black;">
+                        Ingresar
+                    </a>
+                    <span style="font-size:30px; font-family: 'League Spartan', sans-serif; color: black;"> | </span>
+                    <a href="#" data-toggle="modal" data-target="#registro"
+                        style="font-size:30px; font-family: 'League Spartan', sans-serif; color: black;">
+                        Registrarse
+                    </a>-->
+                    <a style="font-size:30px; font-family: 'League Spartan', sans-serif; color: white;">Bienvendo</a><a
+                        id="userWellcome"
+                        style="font-size:30px; font-family: 'League Spartan', sans-serif; color: black;"></a>
+                    <span style="font-size:30px; font-family: 'League Spartan', sans-serif; color: black;"> | </span>
+                    <a id="logoutBtn" href="main.html"
+                        style="font-size:30px; font-family: 'League Spartan', sans-serif; color: white;">
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <div style="font-family: 'League Spartan', sans-serif; margin-left: 30px;">
+            <h1 style="font-size:45px; color: black; margin-top: 10px;">
+                Docentes
+            </h1>
+            <p style="font-size:35px; color: black; margin-top: 10px;">
+                Ordenar por:
+                <br>
+                <input id="checkName" onclick="handleNameChange(this)" type="checkbox" name="orderby" value="nombre"><span
+                    style="font-size:25px; color: black; margin-top: 10px;"> Nombre: <input id="inputName" disabled type="text"
+                        style="width:300px; height:30px;"></span>
+                <a id="btnSearchName" class="btn btn-dark disabled" role="button" href="#"
+                    style="width:40px; height:30px; background-color: #ff7d7b; color: black;"><i
+                        class="fas fa-search"></i></a>
+
+                <input id="checkCourse" onclick="handleCourseChange(this)" type="checkbox" name="orderby" value="materia" ><span
+                    style="font-size:25px; color: black; margin-top: 10px;"> Materia: <input id="inputCourse" disabled type="text"
+                        style="width:200px; height:30px;"></span>
+                <a id="btnSearchCourse" class="btn btn-dark disabled" role="button" href="#"
+                    style="width:40px; height:30px; background-color: #ff7d7b; color: black;"><i
+                        class="fas fa-search"></i></a>
+
+                <input id="checkPoints" onclick="handlePointsChange(this)" type="checkbox" name="orderby" value="puntuacion" ><span
+                    style="font-size:25px; color: black; margin-top: 10px;"> Puntuación (Mayor a menor)</span>
+                <a id="btnSearchPoints" class="btn btn-dark disabled" role="button" href="#"
+                    style="width:40px; height:30px; background-color: #ff7d7b; color: black;"><i
+                        class="fas fa-search"></i></a>
+
+                <input id="checkNoFilter" onclick="handleNoFilterChange(this)" type="checkbox" name="orderby" value="sinfiltro" ><span
+                    style="font-size:25px; color: black; margin-top: 10px;"> Sin filtro</span>
+            </p>
+        </div>
+    </div>
+    <br>
+    <div style="margin-left: 30px; margin-right: 30px; font-family: 'League Spartan', sans-serif; font-size: 25px;">
+        <table class="table" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Materia</th>
+                    <th scope="col">Puntuación</th>
+                    <th scope="col">Recomendación</th>
+                    <th scope="col">Evaluar</th>
+                    <th scope="col">Perfil</th>
+                </tr>
+            </thead>
+            <tbody style="color: #505050;" id="docentList">
+                <!--<tr>
+                    <td>Jefferson Gutierritos</td>
+                    <td>Matemáticas</td>
+                    <td>7.2</td>
+                    <td>👌</td>
+                    <td><button type="button" class="btn btn-dark"
+                            style="width:150px; height:50px; font-size:25px; font-family: 'League Spartan', sans-serif; text-align: center; background-color:aquamarine; color: black;"
+                            href="#" data-toggle="modal" data-target="#evaluar">
+                            Evaluar
+                        </button></td>
+                    <td><button type="button" class="btn btn-dark"
+                            style="width:150px; height:50px; font-size:25px; font-family: 'League Spartan', sans-serif; text-align: center; background-color:aquamarine; color: black;"
+                            href="#" data-toggle="modal" data-target="">
+                            Perfil
+                        </button></td>
+                </tr>-->
+            </tbody>
+        </table>
+    </div>
+    <br><br>
+    <!--<div class="addprofe">
+        <hr>
+        <p style="font-size: 30px;">¿No encuentras a tu docente?<br>
+            <button type="button" class="btn btn-dark"
+                style="width:250px; height:50px; font-size:30px; font-family: 'League Spartan', sans-serif; text-align: center; background-color:aqua; color: black;"
+                href="#" data-toggle="modal" data-target="#">
+                Agrégalo
+            </button>
+        </p>
+    </div>-->
+    <!--ModalEvaluar-->
+    <div class="modal fade" id="evaluar" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true"
+        style="font-size: 20px;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #ff7d7b;">
+                    <h5 class="modal-title" style="color: white; font-size:35px;">DOCENT</h5>
+                    <h5 class="modal-title" style="color: black; font-size:35px;">BLADE</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <span id="modalDocentID" hidden></span>
+                        <span>Estas evaluando a:</span>
+                        <br>
+                        <span id="modalDocentName"style="color: #505050;"></span>
+                        <br><br>
+                        <span>En la materia de:</span>
+                        <br>
+                        <span id="modalDocentCourse" style="color: #505050;"></span>
+                        <br><br>
+                        <span>Puntuación:</span>
+                        <br>
+                        <form>
+                            <p id="modalDocentPoints" class="clasificacion">
+                                <input id="radio1" type="radio" name="estrellas" value="10">
+                                <label for="radio1">10</label>
+                                <input id="radio2" type="radio" name="estrellas" value="9">
+                                <label for="radio2">9</label>
+                                <input id="radio3" type="radio" name="estrellas" value="8">
+                                <label for="radio3">8</label>
+                                <input id="radio4" type="radio" name="estrellas" value="7">
+                                <label for="radio4">7</label>
+                                <input id="radio5" type="radio" name="estrellas" value="6">
+                                <label for="radio5">6</label>
+                                <input id="radio6" type="radio" name="estrellas" value="5">
+                                <label for="radio6">5</label>
+                                <input id="radio7" type="radio" name="estrellas" value="4">
+                                <label for="radio7">4</label>
+                                <input id="radio8" type="radio" name="estrellas" value="3">
+                                <label for="radio8">3</label>
+                                <input id="radio9" type="radio" name="estrellas" value="2">
+                                <label for="radio9">2</label>
+                                <input id="radio10" type="radio" name="estrellas" value="1">
+                                <label for="radio10">1</label>
+                            </p>
+                        </form>
+                        <span>Recomendación:</span>
+                        <br>
+                        <span>
+                            <input id="modalBestReco" onclick="bestRecoCheck(this)" type="checkbox" name="recomendacion" value="0">
+                            <span>
+                                👌 El Mejor
+                            </span>
+                            <input id="modalCapReco" onclick="captainRecoCheck(this)" type="checkbox" name="recomendacion" value="0">
+                            <span>
+                                🚢 Capitan
+                            </span>
+                            <input id="modalDeadReco" onclick="deadRecoCheck(this)" type="checkbox" name="recomendacion" value="0">
+                            <span>
+                                ☠️ Peligro
+                            </span>
+                        </span>
+                        <br><br>
+                        <span>Comentarios:</span>
+                        <textarea id="modalDocentComment" name="texto" rows="4" cols="40" placeholder="Escriba algo"></textarea>
+                        <button onclick="evalDocentClick()" type="submit" class="btn btn-success mt-3 btn-block"
+                            style="background-color:aquamarine; color:black; font-size: 20px;">
+                            Evaluar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <script src="./ajax_handler.js"></script>
+    <script src="./docent_utils.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
